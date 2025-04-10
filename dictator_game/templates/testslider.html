@@ -1,0 +1,243 @@
+{% extends "global/Page.html" %}
+{% block content %}
+<div class="main-container">
+    <div class="slider-container">
+        <h3 class="main-title">Allocation Slider</h3>
+        <input type="range" id="allocation-slider" min="0" max="1" step="0.25" value="0" class="slider" oninput="updateSliderValue()">
+        <div id="slider-value">0</div>
+        <div class="input-container">
+            <button onclick="sendSliderValue()" class="modern-btn">Send</button>
+        </div>
+        
+        <form method="post">
+            <button type="submit" class="modern-btn" style="background-color: #009933;">Confirm Allocations</button>
+        </form>
+        
+    <div class="results-container">
+        <h3 class="main-title">Results</h3>
+        <table id="allocation-table" class="styled-table">
+            <thead>
+                <tr>
+                    <th>Round</th>
+                    <th>Allocation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        let allocationTable = document.getElementById("allocation-table").getElementsByTagName('tbody')[0];
+                        for (let i = 1; i <= 10; i++) {
+                            let row = allocationTable.insertRow();
+                            let cell1 = row.insertCell(0);
+                            let cell2 = row.insertCell(1);
+                            cell1.textContent = `Round ${i}`;
+                            cell2.textContent = "-";
+                        }
+                    });
+                </script>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+function updateSliderValue() {
+    document.getElementById("slider-value").textContent = document.getElementById("allocation-slider").value;
+}
+function sendSliderValue() {
+    if (event) event.preventDefault();  // Prevent default form submission
+    let sliderValue = document.getElementById("allocation-slider").value;
+    liveSend({'slider_value': sliderValue});
+}
+function liveRecv(data) {
+    console.log('Recieved Data:', data);
+    let allocationTable = document.getElementById("allocation-table").getElementsByTagName('tbody')[0];
+
+    if (data.response) {
+        console.log('Updating table')
+        let responseString = String(data.response).trim(); // Ensure it's a string
+        let allocations = responseString.split(',') // Remove extra spaces
+        console.log('Allocations:', allocations.values());
+
+        if (allocations.length === 10) {
+            console.log('Check')
+            let rows = allocationTable.getElementsByTagName("tr");
+
+            for (let i = 0; i < 10; i++) {
+                if (rows[i]) {
+                    rows[i].cells[1].textContent = allocations[i];
+                }
+            }
+        }
+    }
+}
+</script>
+<style>
+.slider-container {
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.chat-box {
+    width: 100%;
+    box-sizing: border-box;
+    height: 70%;
+}
+
+.main-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 1200px;
+     /* Added left padding to shift elements left */
+}
+.results-container {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.chat-container {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 800px;
+    margin-right: 30px
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px; /* Added margin to push input field down */
+
+
+}
+
+.full-width-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+
+.alert-banner {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f44336; /* Bright red background */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.modern-decision-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.main-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+    font-weight: bold;
+    border-bottom: 3px solid #0056b3;
+    padding-bottom: 10px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead tr {
+    background-color: #0056b3;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.styled-table th, .styled-table td {
+    border: 1px solid #dddddd;
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.modern-btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #003d80;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modern-btn:hover {
+    background-color: #003d80;
+}
+</style>
+</style>
+{% endblock %}
