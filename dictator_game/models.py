@@ -65,7 +65,7 @@ class Player(BasePlayer):
     orientation_history=models.LongStringField(initial='{}')
     supervised_history=models.LongStringField(initial='{}') #sample datasets created (created once| currently regenerates on refresh page)
     supervised_dataset=models.LongStringField(initial='{}') #appended by dataset on clicking generated in supervised learning
-
+    prolific_id=models.LongStringField(initial='{}')
     assistant_id = models.StringField(blank=True)  # Allow an empty value
     sample_cnt=models.IntegerField(initial=0)
     supervised_mean=models.FloatField(blank=True)

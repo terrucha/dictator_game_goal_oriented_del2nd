@@ -440,7 +440,7 @@ class Decision(Page):
             current_player = self.player.in_round(display_round)
             allocation=current_player.allocation
         return {
-            'round_number': display_round,
+            'round_number': display_round if current_part ==1 else 10-display_round if current_part == 2 else 20 - display_round,
             'current_part': current_part,
             'decision_mode': (
                 "agent" if (current_part == 2 or (current_part == 3 and self.player.delegate_decision_optional)) else "manual"
@@ -469,6 +469,7 @@ class Decision(Page):
                 # Clear the alert message if no timeout occurred
                 self.participant.vars['alert_message'] = None
                 self.player.random_decisions = False
+            self.player.delegate_decision_optional=False
             # Update decisions for the current round
 
 
@@ -482,6 +483,7 @@ class Decision(Page):
             self.player.allocation = self.player.get_agent_decision_optional(display_round)
             self.participant.vars['alert_message'] = ""
             self.player.random_decisions = True
+            self.player.delegate_decision_optional=True
         
         elif current_part == 3 and not self.player.delegate_decision_optional:  # Optional delegation
             #self.player.allocation = self.player.get_agent_decision_optional(display_round)
@@ -555,7 +557,7 @@ class Results(Page):
                 rounds_data.append({
                     "current_part": current_part,
                     "delegation" : player.field_maybe_none('delegate_decision_optional'),
-                    "round": round_number,
+                    "round": round_number if current_part ==1 else round_number - 10 if current_part == 2 else round_number - 20,
                     "decision": round_result.field_maybe_none('random_decisions'),
                     "id_in_group": player.id_in_group,
                     "kept": 100 - (round_result.field_maybe_none('allocation') or 0),
@@ -566,6 +568,7 @@ class Results(Page):
         return {
             'current_part': current_part,
             'rounds_data': rounds_data,
+            'is_delegation' : player.field_maybe_none('delegate_decision_optional')
         }
 
 # -------------------------

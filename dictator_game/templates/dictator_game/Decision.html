@@ -13,17 +13,12 @@
     {% if decision_mode == "manual" %}
 
     <p class="intro-text">
-        You must decide how to allocate 100 points between yourself and the Receiver.
-    </p>
-    <p class="warning-text">
-        <strong>You have 20 seconds to make your decision.</strong> If you don't decide within the time limit, a random allocation will be made.
-    </p>
+ 
     {% endif %}
-
 
     <form method="post" class="decision-form">
         <label for="allocation" class="allocation-label">
-            <strong>Amount to Allocate to Receiver (0-100 points):</strong>
+            <strong>Amount to Allocate to Receiver (0-100 ECoins):</strong>
         </label>
 
         {% if decision_mode == "manual" %}

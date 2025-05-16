@@ -2,18 +2,18 @@
 
 {% block content %}
 <div class="delegation-container">
-    <h1 class="main-title">Part 3: Delegation Decision</h1>
+    <h1 class="main-title">Part 3: Optional delegation</h1>
 
-    <p class="intro-text">Would you like to delegate your decisions to an AI agent for Part 3?</p>
+    <p class="intro-text">How would you prefer to proceed in Part 3?</p>
 
     <form method="post" class="delegation-form">
-        <label class="delegation-option">
+        <label class="delegation-option" style="text-align: center;">
             <input type="radio" name="delegate_decision_optional" value="True" required>
-            Yes, I want to decide with goal-oriented agent.
+            I prefer to delegate my actions to an AI agent.
         </label><br>
-        <label class="delegation-option">
+        <label class="delegation-option" style="text-align: center;">
             <input type="radio" name="delegate_decision_optional" value="False" required>
-            No, I want to make all decisions myself.
+            I prefer to make all decisions myself.
         </label><br>
         <button class="modern-btn" type="submit">Submit</button>
     </form>
@@ -53,9 +53,10 @@ body {
 
 /* Text Styling */
 .intro-text {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 20px;
     color: #555555;
+    font-weight: bold;
 }
 
 /* Form Styling */

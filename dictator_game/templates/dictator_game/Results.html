@@ -2,15 +2,24 @@
 
 {% block content %}
 <div class="results-container">
+    {% if is_delegation  %}
+    <h1 class="main-title">AI Agent Behavior for Part {{ current_part }}</h1>
+    {% endif %}
+
+    {% if is_delegation == False %}
     <h1 class="main-title">Results for Part {{ current_part }}</h1>
+    {% endif %}
+    
 
     <div class="table-container">
         <table class="styled-table">
             <thead>
                 <tr>
                     <th>Round</th>
+                      <!-- 
                     <th>Decision</th>
                     <th>Player</th>
+                -->
                     <th>Kept</th>
                     <th>Allocated</th>
                     <th>Total</th>
@@ -20,6 +29,8 @@
                 {% for result in rounds_data %}
                 <tr>
                     <td>{{ result.round }}</td>
+                   
+        <!--            
                     {% if result.decision and result.current_part == 1%}
                         <td> Random </td>
                     {% elif result.decision == False and result.current_part == 1%}
@@ -45,6 +56,8 @@
 
 
                     <td>Player {{ result.id_in_group }}</td>
+                    -->
+
                     <td>{{ result.kept }}</td>
                     <td>{{ result.allocated }}</td>
                     <td>{{ result.total }}</td>

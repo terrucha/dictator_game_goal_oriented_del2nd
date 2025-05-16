@@ -18,10 +18,12 @@
         <div class="content-box">
             <p>Your task is divided into three parts, and in each part, you will play 10 rounds.</p>
             <ul>
-                <li>In each round, you will decide how to allocate <strong>10 cents</strong> between yourself and a Receiver.</li>
+                <li>In each round, you will decide how to allocate <strong>100 ECoins</strong> between yourself and a Receiver.</li>
                 <li>Before each part, you will receive specific instructions about how to make your decisions.</li>
                 <li>At the end of the experiment, <strong>one of the three parts</strong> will be randomly selected to determine the actual bonus payments.</li>
                 <li>You will not know which part is selected until the study is complete, so please consider your decisions carefully in every part.</li>
+                <li>The bonus payments will be transferred to you, within a week after you participate in the study, at a rate of 10 ECoins = 1 cent.</li>
+                    
             </ul>
         </div>
     </div>
@@ -42,17 +44,11 @@
         <h2>How Each Round Works</h2>
         <div class="content-box">
             <ul>
-                <li>You will receive a total of <strong>10 cents</strong> for each round.</li>
-                <li>In parts where you make the decisions, you will choose how much of the 10 cents you want to keep for yourself and how much to give to the Receiver.</li>
+                <li>You will receive a total of <strong>100 ECoins</strong> for each round.</li>
+                <li>In parts where you make the decisions, you will choose how much of the 100ECoins you want to keep for yourself and how much to give to the Receiver.</li>
                 <li>In parts where an AI agent makes decisions, the agent will determine how to allocate the bonus in each round.</li>
                 <li>
-                    Each decision, whether made by you or the agent, will take <strong>20 seconds</strong> to be finalized.
-                    <ul>
-                        <li>If you do not complete a decision within <strong>20 seconds</strong>, a random allocation will be applied for that round.</li>
-                    </ul>
-                </li>
-                <li>
-                    Receivers are reshuffled between rounds. This means that in each round, you will be matched with a different Receiver, ensuring that every decision you make is independent of your interactions in previous rounds.
+                    <strong>Receivers are reshuffled between rounds</strong>. This means that in each round, you will be matched with a different Receiver, ensuring that every decision you make is independent of your interactions in previous rounds.
                 </li>
             </ul>
         </div>
@@ -81,29 +77,28 @@
     </div>
 
     <div class="content-section">
-        <h2>Attention Check</h2>
-        <div class="content-box">
-            <p>
-                At the end of each of the three parts, you will complete a short attention check to ensure you are still actively following the task. Failing any of the attention checks will result in your exclusion from the task.
-            </p>
-        </div>
-    </div>
-
-    <div class="content-section">
         <h2>Important: Next Steps</h2>
         <div class="content-box">
             <p>
-                After clicking "Continue," you will be redirected to a <strong>Comprehension Test</strong>.
-                You will have <strong>three attempts</strong> to pass the test. Successfully passing the comprehension test is mandatory to proceed in the experiment.
+                After clicking "Continue", you will be redirected to a <strong>Comprehension Test.</strong>
+                This will be used to determine how well you understood the task at hand, so please <strong>read these instructions carefully before clicking "Continue</strong>
             </p>
         </div>
     </div>
 
     <form method="post" class="form-container">
-        <button type="submit" class="modern-btn">Continue</button>
+        <button type="submit" class="modern-btn" id="delayedForm" hidden>Continue</button>
     </form>
 </div>
-
+<script>
+    // Wait until the DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Reveal the form after 90 000 ms = 90 s
+      setTimeout(() => {
+        document.getElementById('delayedForm').hidden = false;
+      }, 90000);
+    });
+  </script>
 <style>
 /* General Styling */
 body {
