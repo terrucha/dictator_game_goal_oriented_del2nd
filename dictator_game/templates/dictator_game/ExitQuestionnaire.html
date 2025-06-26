@@ -1,4 +1,5 @@
 {% extends "global/Page.html" %}
+{% load otree_tags %}
 {% block content %}
 <div class="modern-test-container">
     <h1 class="main-title">Exit Questionnaire</h1>
@@ -7,6 +8,7 @@
 
     <form method="post" class="test-form">
 
+<<<<<<< HEAD
 
 
         {# Display all errors at top once #}
@@ -41,6 +43,33 @@
         <hr class="divider"/>
 
         <div class="question-container">{{ formfield 'feedback' }}</div>
+=======
+        {# Show any global form errors #}
+        {% if form.errors %}
+        <ul class="errorlist global-error">
+            {% for field, errs in form.errors.items %}
+                {% for err in errs %}<li>{{ err }}</li>{% endfor %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="question-container">{{ formfield "gender" }}</div>
+        <hr class="divider"/>
+
+        <div class="question-container">{{ formfield "age" }}</div>
+        <hr class="divider"/>
+
+        <div class="question-container">{{ formfield "occupation" }}</div>
+        <hr class="divider"/>
+
+        <div class="question-container">{{ formfield "ai_use" }}</div>
+        <hr class="divider"/>
+
+        <div class="question-container">{{ formfield "task_difficulty" }}</div>
+        <hr class="divider"/>
+
+        <div class="question-container">{{ formfield "feedback" }}</div>
+>>>>>>> c6666a1b545ae1763e7770a297b9603789b25490
         <hr class="divider"/>
 
 
@@ -50,29 +79,27 @@
 </div>
 
 <script>
-// Redirect after oTree saves answers
-const form = document.querySelector('form.test-form');
-form.addEventListener('submit', function () {
-    setTimeout(function () {
+// Immediate redirect after the form POST is initiated (no timer)
+(function () {
+    const form = document.querySelector('form.test-form');
+    form.addEventListener('submit', function () {
         window.location.href = 'https://bsky.app/profile/iterrucha.bsky.social';
-    }, 250);
-});
+    });
+})();
 </script>
 
 <style>
-/* Re‑use the same styling skeleton */
 body{font-family:'Arial',sans-serif;background:#f9f9f9;margin:0;color:#333;}
 .modern-test-container{max-width:900px;margin:30px auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.1);} 
 .main-title{font-size:30px;text-align:center;margin-bottom:20px;font-weight:bold;color:#333;border-bottom:3px solid #0056b3;padding-bottom:10px;} 
 .question-container{margin-bottom:20px;} 
-.question-label{font-size:18px;font-weight:bold;color:#0056b3;margin-bottom:8px;display:block;} 
-.question-subtext{font-size:14px;color:#555;margin-bottom:8px;} 
-.option{margin:4px 0;font-size:14px;} 
-.option input{margin-right:8px;} 
+.question-label, .otree-form-field label{font-size:18px;font-weight:bold;color:#0056b3;display:block;margin-bottom:6px;} 
+.otree-form-field{margin-bottom:12px;} 
 .divider{border:none;border-top:1px solid #e0e0e0;margin:20px 0;} 
 .modern-btn{display:block;width:100%;max-width:220px;margin:25px auto;padding:12px 18px;font-size:18px;color:#fff;background:#0056b3;border:none;border-radius:6px;cursor:pointer;transition:background .3s;text-align:center;} 
 .modern-btn:hover{background:#003d80;} 
-.errorlist{color:#d9534f;margin:4px 0 0;list-style:none;font-size:13px;} 
-@media(max-width:768px){.modern-test-container{padding:15px;}.main-title{font-size:26px;}.question-label{font-size:16px;}}
+.errorlist{color:#d9534f;margin:4px 0;list-style:none;font-size:13px;}
+.global-error{margin-bottom:15px;}
+@media(max-width:768px){.modern-test-container{padding:15px;}.main-title{font-size:26px;}.question-label, .otree-form-field label{font-size:16px;}}
 </style>
 {% endblock %}
