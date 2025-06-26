@@ -2,10 +2,18 @@
 
 {% block content %}
 <div class="modern-instructions-container">
-    <h1 class="main-title">You were excluded due to failed test.</h1>
-    <p class="intro-text">
-        Thank you for participating in this study!<br>
-        You failed the comprehension test and will now be excluded from the experiment. You will be redirected to Prolific shortly.
+    <h1 class="main-title">You have failed the Comprehension Test 3 times.</h1>
+    <p>
+        Unfortunately, this means you do not meet the inclusion criteria for this study.
+        As outlined in the Informed Consent form you agreed to, <strong>participants who fail the comprehension test or any of the attention checks are excluded from further participation</strong>.
+    </p>
+    <p>
+        The test was designed to be straightforward, with all relevant instructions displayed on the screen below each question.
+        Passing it should have been a matter of careful reading and attention.
+        Because you did not pass the test, <strong>we cannot be confident in the quality of the data you would have provided</strong>.
+    </p>
+    <p>
+        You will now be redirected to Prolific.
     </p>
 </div>
 {% endblock %}
@@ -119,7 +127,7 @@ body {
 <script>
     setTimeout(function() {
         window.location.href = "https://scholar.google.com/citations?user=77-QNbAAAAAJ&hl=en";
-    }, 20000);  // 20000 ms = 20 seconds
+    }, 10000);  // 10000 ms = 10 seconds
 </script>
 
 {% endblock %}

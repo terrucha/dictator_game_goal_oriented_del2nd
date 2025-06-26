@@ -3,10 +3,9 @@
 {% block content %}
 <div class="modern-container">
     <h1 class="main-title">Welcome to this Experiment</h1>
-    <p class="intro-text">
-        Please read the following instructions carefully. After 60 seconds, you will be able to proceed to the next step.
+        <p class="intro-text">
+        Please read the following instructions carefully. After 60 seconds, a “Continue” button will appear, allowing you to proceed to the next step.
         </p>
-
     <div class="content-section">
         <h2>Your Role: Allocator</h2>
         <div class="content-box">
@@ -19,13 +18,13 @@
     <div class="content-section">
         <h2>How Your Task is Structured</h2>
         <div class="content-box">
-            <p>Your task is divided into three parts, and in each part, you will play 10 rounds.</p>
+            <p>Your task is divided into <strong>three parts</strong>, and in each part, you will play <strong>10 rounds</strong>.</p>
             <ul>
                 <li>In each round, you will decide how to allocate <strong>100 ECoins</strong> between yourself and a Receiver.</li>
                 <li>Before each part, you will receive specific instructions about how to make your decisions.</li>
-                <li>At the end of the experiment, <strong>one of the three parts</strong> will be randomly selected to determine the actual bonus payments.</li>
+                <li>At the end of the experiment, <strong>one of the three parts will be randomly selected</strong> to determine your actual bonus payment in dollars.</li>
                 <li>You will not know which part is selected until the study is complete, so please consider your decisions carefully in every part.</li>
-                <li>The bonus payments will be transferred to you, within a week after you participate in the study, at a rate of 10 ECoins = 1 cent.</li>
+                <li>The bonus payment will be transferred to you, within a week after you participate in the study, at a rate of 10 ECoins = 1 cent.</li>
                     
             </ul>
         </div>
@@ -34,11 +33,11 @@
     <div class="content-section">
         <h2>Details About Each Part</h2>
         <div class="content-box">
-            <ul>
+            <ol>
                 <li><strong>Part 1:</strong> You will make every decision yourself in each of the 10 rounds.</li>
-                <li><strong>Part 2:</strong> You will choose an AI agent at the beginning of the part, and the AI will make all allocation decisions on your behalf for the 10 rounds.</li>
+                <li><strong>Part 2:</strong> You will set up an AI agent at the beginning of the part, and the AI will make all allocation decisions on your behalf for the 10 rounds.</li>
                 <li><strong>Part 3:</strong> You will have the option to either make each decision yourself or delegate the decisions to an AI agent.</li>
-            </ul>
+            </ol>
             <p>Specific instructions will be provided before the start of each part to guide you through the process.</p>
         </div>
     </div>
@@ -46,14 +45,13 @@
     <div class="content-section">
         <h2>How Each Round Works</h2>
         <div class="content-box">
-            <ul>
+            <ol>
                 <li>You will receive a total of <strong>100 ECoins</strong> for each round.</li>
-                <li>In parts where you make the decisions, you will choose how much of the 100ECoins you want to keep for yourself and how much to give to the Receiver.</li>
-                <li>In parts where an AI agent makes decisions, the agent will determine how to allocate the bonus in each round.</li>
-                <li>
-                    <strong>Receivers are reshuffled between rounds</strong>. This means that in each round, you will be matched with a different Receiver, ensuring that every decision you make is independent of your interactions in previous rounds.
+                <li>In parts where you make the decisions, you will choose how much of the 100 ECoins you want to allocate to each Receiver you encounter in every round.</li>
+                <li>In parts where an AI agent makes decisions, the agent (set up by you) will determine how to allocate the bonus in each round according to your preferences.</li>
+                <li><strong>Receivers are reshuffled between rounds.</strong> This means that in each round, you will be matched with a different Receiver, ensuring that every decision you make is independent of your interactions in previous rounds.
                 </li>
-            </ul>
+            </ol>
         </div>
     </div>
 
@@ -61,10 +59,9 @@
         <h2>Important Details</h2>
         <div class="content-box">
             <ul>
-                <li>The Receiver is another human participant who depends on your decisions to determine their bonus.</li>
+                <li>The Receivers are other human participants who depend on your decisions to determine their bonuses.</li>
                 <li>The decisions you make (or delegate to the AI) are entirely up to you. There are no right or wrong answers.</li>
-                <li>
-                    Only the randomly selected part will be used to calculate your actual bonus payment, but your decisions in all parts will contribute to the study.
+                <li>Only one randomly selected part will be used to determine your bonus payment in dollars, but your decisions in all parts will contribute to the study.
                 </li>
             </ul>
         </div>
@@ -83,8 +80,9 @@
         <h2>Important: Next Steps</h2>
         <div class="content-box">
             <p>
-                After clicking "Continue", you will be redirected to a <strong>Comprehension Test.</strong>
-                This will be used to determine how well you understood the task at hand, so please <strong>read these instructions carefully before clicking "Continue".</strong>
+                After clicking <strong>“Continue”</strong>, you will be redirected to a <strong>Comprehension Test</strong>.
+                This test is designed to assess how well you understood the task, so please read the instructions carefully before proceeding. If you fail the test more than <strong>three times</strong>, you will be excluded from the experiment. 
+                For your convenience, the instructions will also appear again at the bottom of the Comprehension Test page. 
             </p>
         </div>
     </div>
@@ -136,6 +134,12 @@ body {
 .content-section {
     margin-bottom: 20px;
 }
+.intro-text {
+    font-size: 16px;
+    color: #9c0909;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
 
 .content-section h2 {
     font-size: 22px;
@@ -174,12 +178,7 @@ body {
 .modern-btn:hover {
     background-color: #003d80;
 }
-.intro-text {
-    font-size: 16px;
-    color: #9c0909;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .modern-container {

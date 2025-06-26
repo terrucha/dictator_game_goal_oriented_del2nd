@@ -9,6 +9,11 @@
 
 <div class="main-container">
         <div class="slider-container">
+        <h1 class="main-title">
+            Part {{ current_part }}: Set up your AI agent
+        </h1>
+        <p class="intro-text">Choose one of the datasets below for your AI agent to learn from. After choosing a table and clicking “Generate” you can check your AI agent’s behavior on the table on the right before confirming it.</p>
+        
             <div class="slider-labels">
             <span>Choose your allocation goal</span>
             <br></br>
@@ -33,8 +38,7 @@
             <thead>
                 <tr>
                     <th>Round</th>
-                    <th>Kept</th>
-                    <th>Allocation</th>
+                    <th>Allocations</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,11 +49,8 @@
                             let row = allocationTable.insertRow();
                             let cell1 = row.insertCell(0);
                             let cell2 = row.insertCell(1);
-                            let cell3 = row.insertCell(2);
                             cell1.textContent = `Round ${i}`;
                             cell2.textContent = "-";
-                            cell3.textContent = "-";
-                               
                         }
                     });
                 </script>
@@ -136,8 +137,7 @@ function liveRecv(data) {
 
             for (let i = 0; i < 10; i++) {
                 if (rows[i]) {
-                    rows[i].cells[1].textContent = 100 - allocations[i];
-                    rows[i].cells[2].textContent = allocations[i];
+                    rows[i].cells[1].textContent = allocations[i];
                     
                 }
             }
@@ -161,7 +161,7 @@ function liveRecv(data) {
 
 
 .slider-container {
-    width: 400px;
+    width: 600px;
     text-align: center;
     padding: 20px;
     background: #fff;
@@ -176,7 +176,7 @@ function liveRecv(data) {
     display: flex;
     justify-content: flex-start;
     gap: 20px;
-    width: 1200px;
+    width: 1000px;
      /* Added left padding to shift elements left */
 }
 .results-container {
@@ -186,7 +186,6 @@ function liveRecv(data) {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
-
 
 
 @keyframes fadeIn {

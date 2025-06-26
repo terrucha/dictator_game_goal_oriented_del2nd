@@ -2,14 +2,9 @@
 
 {% block content %}
 <div class="results-container">
-    {% if is_delegation  %}
-    <h1 class="main-title">AI Agent Behavior for Part {{ current_part }}</h1>
-    {% endif %}
 
-    {% if is_delegation == False %}
     <h1 class="main-title">Results for Part {{ current_part }}</h1>
-    {% endif %}
-    
+
 
     <div class="table-container">
         <table class="styled-table">

@@ -10,7 +10,6 @@
     <p class="int{% extends "global/Page.html" %}
 
     {% block content %}
-    <div class="modern-decision-container">
 
     
         <h1 class="main-title">Decision: Round {{ round_number }} of Part {{ current_part }}</h1>
@@ -22,7 +21,8 @@
     
         <form method="post" class="decision-form">
             <label for="allocation" class="allocation-label">
-                <strong>Amount to Allocate to Receiver (0-100 ECoins):</strong>
+                <strong>How much do you want to allocate to the receiver in this round?</strong>
+                (Choose a value between 0 and 100 ECoins.)
             </label>
     
             {% if decision_mode == "manual" %}
@@ -50,7 +50,7 @@
             {% endif %}
     
             <button type="submit" class="modern-btn">
-                {% if decision_mode == "manual" %}Submit{% else %}Continue{% endif %}
+                {% if decision_mode == "manual" %}Confirm{% else %}Continue{% endif %}
             </button>
         </form>
     
@@ -254,7 +254,7 @@
         {% endif %}
 
         <button type="submit" class="modern-btn">
-            {% if decision_mode == "manual" %}Submit{% else %}Continue{% endif %}
+            {% if decision_mode == "manual" %}Confirm{% else %}Continue{% endif %}
         </button>
     </form>
 
