@@ -61,7 +61,6 @@ class Player(BasePlayer):
     assistant_id = models.StringField(blank=True)  # Allow an empty value
     sample_cnt=models.IntegerField(initial=0)
     supervised_mean=models.FloatField(blank=True)
-    result_finalized=False
 
     # Allocation for the current decision (manual or agent-based)
     allocation = models.IntegerField(

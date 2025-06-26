@@ -349,10 +349,6 @@ class Debriefing(Page):
     form_fields = []        # nothing to store on this page
     def is_displayed(self):
         return  self.round_number == Constants.num_rounds
-
-    def before_next_page(self):
-        self.player.result_finalized=True
-
         
     def vars_for_template(self):
         import json

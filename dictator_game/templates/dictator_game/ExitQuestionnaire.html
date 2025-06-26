@@ -2,70 +2,50 @@
 {% block content %}
 <div class="modern-test-container">
     <h1 class="main-title">Exit Questionnaire</h1>
-    <p class="intro-text">Thank you so much for participating in our experiment. Before you leave, please answer the basic demographic questions below. <strong>Only the last text box is optional.</strong></p>
+    <p class="intro-text">Thank you so much for participating in our experiment. Please answer some basic demographic questions below before going back to Prolific.</p>
+
 
     <form method="post" class="test-form">
-        <!-- Q1 Gender Identity -->
-        <div class="question-container">
-            <label class="question-label">1. How do you describe yourself?</label>
-            <div class="option"><input type="radio" name="gender" value="male" id="gender_m" required><label for="gender_m"> Male</label></div>
-            <div class="option"><input type="radio" name="gender" value="female" id="gender_f"><label for="gender_f"> Female</label></div>
-            <div class="option"><input type="radio" name="gender" value="nonbinary" id="gender_nb"><label for="gender_nb"> Non‑binary</label></div>
-            <div class="option"><input type="radio" name="gender" value="nosay" id="gender_na"><label for="gender_na"> Prefer not to say</label></div>
-            {{ formfield_errors 'gender' }}
-        </div>
+
+
+
+        {# Display all errors at top once #}
+
+        {% if form.errors %}
+
+        <ul class="errorlist global-error">
+
+            {% for field, errs in form.errors.items %}
+
+                {% for err in errs %}<li>{{ err }}</li>{% endfor %}
+
+            {% endfor %}
+
+        </ul>
+
+        {% endif %}
+
+        <div class="question-container">{{ formfield 'gender' }}</div>
         <hr class="divider"/>
 
-        <!-- Q2 Age -->
-        <div class="question-container">
-            <label class="question-label" for="age">2. How old are you?</label>
-            <input type="number" id="age" name="age" min="18" max="100" required style="width:120px; padding:6px;">
-            {{ formfield_errors 'age' }}
-        </div>
+        <div class="question-container">{{ formfield 'age' }}</div>
         <hr class="divider"/>
 
-        <!-- Q3 Occupation -->
-        <div class="question-container">
-            <label class="question-label" for="occupation">3. What is your current main occupation?</label>
-            <p class="question-subtext">This may be a specific profession or a status such as student, unemployed, pensioner, caregiver, etc.</p>
-            <input type="text" id="occupation" name="occupation" maxlength="100" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ '()-]{1,100}$" required style="width:100%; max-width:500px; padding:6px;">
-            {{ formfield_errors 'occupation' }}
-        </div>
+        <div class="question-container">{{ formfield 'occupation' }}</div>
         <hr class="divider"/>
 
-        <!-- Q4 AI Use Frequency -->
-        <div class="question-container">
-            <label class="question-label">4. How often do you interact with AI agents (e.g., ChatGPT)?</label>
-            <div class="option"><input type="radio" name="ai_use" value="never" id="ai_1" required><label for="ai_1"> Never</label></div>
-            <div class="option"><input type="radio" name="ai_use" value="monthly" id="ai_2"><label for="ai_2"> A few times a month</label></div>
-            <div class="option"><input type="radio" name="ai_use" value="weekly" id="ai_3"><label for="ai_3"> A few times a week</label></div>
-            <div class="option"><input type="radio" name="ai_use" value="daily" id="ai_4"><label for="ai_4"> A few times a day</label></div>
-            <div class="option"><input type="radio" name="ai_use" value="constant" id="ai_5"><label for="ai_5"> All the time</label></div>
-            {{ formfield_errors 'ai_use' }}
-        </div>
+        <div class="question-container">{{ formfield 'ai_use' }}</div>
         <hr class="divider"/>
 
-        <!-- Q5 Task Difficulty -->
-        <div class="question-container">
-            <label class="question-label">5. How hard was it for you to understand the experimental task?</label>
-            <div class="option"><input type="radio" name="task_difficulty" value="very_difficult" id="diff_1" required><label for="diff_1"> Very difficult</label></div>
-            <div class="option"><input type="radio" name="task_difficulty" value="difficult" id="diff_2"><label for="diff_2"> Difficult</label></div>
-            <div class="option"><input type="radio" name="task_difficulty" value="neutral" id="diff_3"><label for="diff_3"> Neutral</label></div>
-            <div class="option"><input type="radio" name="task_difficulty" value="easy" id="diff_4"><label for="diff_4"> Easy</label></div>
-            <div class="option"><input type="radio" name="task_difficulty" value="very_easy" id="diff_5"><label for="diff_5"> Very easy</label></div>
-            {{ formfield_errors 'task_difficulty' }}
-        </div>
+        <div class="question-container">{{ formfield 'task_difficulty' }}</div>
         <hr class="divider"/>
 
-        <!-- Q6 Suggestions (optional) -->
-        <div class="question-container">
-            <label class="question-label" for="feedback">6. Suggestions or comments for the researchers (optional):</label>
-            <textarea id="feedback" name="feedback" maxlength="1000" rows="5" style="width:100%; max-width:600px; padding:6px;"></textarea>
-            {{ formfield_errors 'feedback' }}
-        </div>
+        <div class="question-container">{{ formfield 'feedback' }}</div>
         <hr class="divider"/>
 
-        <button type="submit" class="modern-btn">Exit &amp; Continue</button>
+
+        <button type="submit" class="modern-btn">Take me back to Prolific.</button>
+
     </form>
 </div>
 
