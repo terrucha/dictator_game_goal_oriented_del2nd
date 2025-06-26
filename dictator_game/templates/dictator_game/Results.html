@@ -20,47 +20,18 @@
                     <th>Decision</th>
                     <th>Player</th>
                 -->
-                    <th>Kept</th>
-                    <th>Allocated</th>
-                    <th>Total</th>
+                    <th>Allocated <small>(to others)</small></th>
+                    <th>Kept <small>(to yourself)</small></th>
+
                 </tr>
             </thead>
             <tbody>
                 {% for result in rounds_data %}
                 <tr>
                     <td>{{ result.round }}</td>
-                   
-        <!--            
-                    {% if result.decision and result.current_part == 1%}
-                        <td> Random </td>
-                    {% elif result.decision == False and result.current_part == 1%}
-                        <td> Self </td>    
-                    
-                    
-                    {% elif result.current_part == 2%}
-                        <td> Goal Oriented </td>
-
-                    {% elif result.current_part == 3 and result.delegation == True %}
-                        <td> Goal Oriented </td>
-
-                    {% elif result.current_part == 3 and result.delegation == False and  result.decision == False %}
-                        <td> Self </td>
-
-                    {% elif result.current_part == 3 and result.delegation == False and  result.decision == True %}
-                        <td> Random </td>
-
-                    {% else %}
-                        <td> ELSE </td>
-                    {% endif %}
-
-
-
-                    <td>Player {{ result.id_in_group }}</td>
-                    -->
+                     <td>{{ result.allocated }}</td>
 
                     <td>{{ result.kept }}</td>
-                    <td>{{ result.allocated }}</td>
-                    <td>{{ result.total }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -129,12 +100,12 @@
     
     .styled-table th,
     .styled-table td {
-        border: 1px solid #dddddd;
+        border: 1px solid #c1c1c1;
         padding: 12px 15px;
     }
     
     .styled-table tbody tr {
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid #c1c1c1;
     }
     
     .styled-table tbody tr:nth-of-type(even) {
@@ -146,7 +117,7 @@
     }
     
     .styled-table tbody tr:last-of-type {
-        border-bottom: 2px solid #0056b3;
+        border-bottom: 2px solid #c1c1c1;
     }
     
     /* Button Styling */

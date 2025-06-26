@@ -4,7 +4,8 @@
 <div class="modern-test-container">
     <h1 class="main-title">Comprehension Test</h1>
     <p class="intro-text">
-        Please answer the following questions. Your progress depends on understanding the task fully.
+       You have three attempts to answer all questions on this test correctly. If you submit your answers and fail any question on all three attempts, you will be expelled from the experiment. 
+       For your convenience, the instructions are also available at the bottom of the page. <br>Please answer the following questions. Your progress depends on understanding the task fully. 
     </p>
 
     <form method="post" class="test-form">
@@ -84,8 +85,8 @@
         <!-- Question 9 -->
         <div class="question-container">
             <label class="question-label">8. True or False: Only one randomly selected part will be used to determine your bonus payments at the end of the study.</label>
-            <div class="option"><input type="radio" name="q9" value="a" id="q9_a"><label for="q9_a"> a) True</label></div>
-            <div class="option"><input type="radio" name="q9" value="b" id="q9_b"><label for="q9_b"> b) False</label></div>
+            <div class="option"><input type="radio" name="q8" value="a" id="q8_a"><label for="q8_a"> a) True</label></div>
+            <div class="option"><input type="radio" name="q8" value="b" id="q8_b"><label for="q8_b"> b) False</label></div>
         </div>
         <hr class="divider">
 
@@ -95,7 +96,43 @@
 
         <button type="submit" class="modern-btn">Submit</button>
     </form>
+
+    <div class="small-instructions">
+    <h3>Instructions</h3>
+    <p><strong>Your Role: Allocator</strong><br>
+    You have been assigned the role of Allocator in this study. As an Allocator, your task is to decide how to allocate monetary bonuses between yourself and other participants (called Receivers).</p>
+
+    <p><strong>How Your Task is Structured</strong><br>
+    Your task is divided into three parts, and in each part, you will play 10 rounds.<br>
+    In each round, you will decide how to allocate 100 ECoins between yourself and a Receiver.<br>
+    Before each part, you will receive specific instructions about how to make your decisions.<br>
+    At the end of the experiment, one of the three parts will be randomly selected to determine the actual bonus payments.<br>
+    You will not know which part is selected until the study is complete, so please consider your decisions carefully in every part.<br>
+    The bonus payments will be transferred to you, within a week after you participate in the study, at a rate of 10 ECoins = 1 cent.</p>
+
+    <p><strong>Details About Each Part</strong><br>
+    <strong>Part 1:</strong> You will make every decision yourself in each of the 10 rounds.<br>
+    <strong>Part 2:</strong> You will choose an AI agent at the beginning of the part, and the AI will make all allocation decisions on your behalf for the 10 rounds.<br>
+    <strong>Part 3:</strong> You will have the option to either make each decision yourself or delegate the decisions to an AI agent.</p>
+
+    <p><strong>How Each Round Works</strong><br>
+    You will receive a total of 100 ECoins for each round.<br>
+    In parts where you make the decisions, you will choose how much of the 100 ECoins you want to keep for yourself and how much to give to the Receiver.<br>
+    In parts where an AI agent makes decisions, the agent will determine how to allocate the bonus in each round.<br>
+    Receivers are reshuffled between rounds. This means that in each round, you will be matched with a different Receiver, ensuring that every decision you make is independent of your interactions in previous rounds.</p>
+
+    <p><strong>Important Details</strong><br>
+    The Receiver is another human participant who depends on your decisions to determine their bonus.<br>
+    The decisions you make (or delegate to the AI) are entirely up to you. There are no right or wrong answers.<br>
+    Only the randomly selected part will be used to calculate your actual bonus payment, but your decisions in all parts will contribute to the study.</p>
+
+    <p><strong>Anonymity</strong><br>
+    Your decisions will remain anonymous throughout the study. The Receivers will not know your identity, and you will not know theirs.</p>
 </div>
+
+</div>
+
+
 
 <style>
 /* General Styling */
@@ -197,6 +234,22 @@ body {
     .question-label {
         font-size: 16px;
     }
+}
+
+.small-instructions {
+    font-size: 13px;
+    color: #555;
+    margin-top: 40px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    line-height: 1.5;
+}
+.small-instructions h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
 }
 </style>
 {% endblock %}

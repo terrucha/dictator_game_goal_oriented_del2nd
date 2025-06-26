@@ -3,6 +3,9 @@
 {% block content %}
 <div class="modern-container">
     <h1 class="main-title">Welcome to this Experiment</h1>
+    <p class="intro-text">
+        Please read the following instructions carefully. After 60 seconds, you will be able to proceed to the next step.
+        </p>
 
     <div class="content-section">
         <h2>Your Role: Allocator</h2>
@@ -81,7 +84,7 @@
         <div class="content-box">
             <p>
                 After clicking "Continue", you will be redirected to a <strong>Comprehension Test.</strong>
-                This will be used to determine how well you understood the task at hand, so please <strong>read these instructions carefully before clicking "Continue</strong>
+                This will be used to determine how well you understood the task at hand, so please <strong>read these instructions carefully before clicking "Continue".</strong>
             </p>
         </div>
     </div>
@@ -96,7 +99,7 @@
       // Reveal the form after 90 000 ms = 90 s
       setTimeout(() => {
         document.getElementById('delayedForm').hidden = false;
-      }, 90000);
+      }, 60000);
     });
   </script>
 <style>
@@ -171,7 +174,12 @@ body {
 .modern-btn:hover {
     background-color: #003d80;
 }
-
+.intro-text {
+    font-size: 16px;
+    color: #9c0909;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .modern-container {
