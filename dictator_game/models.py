@@ -61,14 +61,13 @@ class Player(BasePlayer):
     assistant_id = models.StringField(blank=True)  # Allow an empty value
     sample_cnt=models.IntegerField(initial=0)
     supervised_mean=models.FloatField(blank=True)
-    result_finalized=False
 
     # Allocation for the current decision (manual or agent-based)
     allocation = models.IntegerField(
         min=0,
         max=100,
         label="How much would you like to allocate to the other participant?",
-        blank=True
+        blank=True,
     )
     gender = models.StringField(
         choices=[
@@ -78,6 +77,7 @@ class Player(BasePlayer):
             ('nosay',       'Prefer not to say'),
         ],
         label="How do you describe yourself?",
+        widget=widgets.RadioSelect 
     )
 
     age = models.IntegerField(
@@ -99,6 +99,7 @@ class Player(BasePlayer):
             ('constant',    'All the time'),
         ],
         label="How often do you interact with AI agents (e.g., ChatGPT)?",
+        widget=widgets.RadioSelect 
     )
 
     task_difficulty = models.StringField(
@@ -110,6 +111,7 @@ class Player(BasePlayer):
             ('very_easy',   'Very easy'),
         ],
         label="How hard was it for you to understand the experimental task?",
+        widget=widgets.RadioSelect 
     )
 
     feedback = models.LongStringField(

@@ -350,10 +350,7 @@ class Debriefing(Page):
     def is_displayed(self):
         return  self.round_number == Constants.num_rounds
 
-    def before_next_page(self):
-        self.player.result_finalized=True
 
-        
     def vars_for_template(self):
         import json
         import random
@@ -448,6 +445,17 @@ class ExitQuestionnaire(Page):
         return  self.round_number == Constants.num_rounds
 
 
+class Thankyou(Page):
+
+    # the Prolific completion link
+
+    def vars_for_template(self):
+        prolific_url = 'https://bsky.app/profile/iterrucha.bsky.social'
+
+        return dict(url=prolific_url)
+    
+    def is_displayed(self): 
+        return self.round_number == Constants.num_rounds
 
 
 # -------------------------
@@ -467,4 +475,5 @@ page_sequence = [
     Results,                # Reusable for all parts
     Debriefing,             # At the end or if excluded
     ExitQuestionnaire,
+    Thankyou,
 ]
