@@ -104,13 +104,13 @@ class Player(BasePlayer):
 
     task_difficulty = models.StringField(
         choices=[
-            ('very_diff',   'Very difficult'),
-            ('diff',        'Difficult'),
+            ('very_diff',   'Very difficult to understand'),
+            ('diff',        'Difficult to understand'),
             ('neutral',     'Neutral'),
-            ('easy',        'Easy'),
-            ('very_easy',   'Very easy'),
+            ('easy',        'Easy to understand'),
+            ('very_easy',   'Very easy to understand'),
         ],
-        label="How hard was it for you to understand the experimental task?",
+        label="How would you rate the clarity of the experimental task?",
         widget=widgets.RadioSelect 
     )
 

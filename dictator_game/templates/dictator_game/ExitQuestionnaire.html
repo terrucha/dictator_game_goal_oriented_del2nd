@@ -8,42 +8,6 @@
 
     <form method="post" class="test-form">
 
-<<<<<<< HEAD
-
-
-        {# Display all errors at top once #}
-
-        {% if form.errors %}
-
-        <ul class="errorlist global-error">
-
-            {% for field, errs in form.errors.items %}
-
-                {% for err in errs %}<li>{{ err }}</li>{% endfor %}
-
-            {% endfor %}
-
-        </ul>
-
-        {% endif %}
-
-        <div class="question-container">{{ formfield 'gender' }}</div>
-        <hr class="divider"/>
-
-        <div class="question-container">{{ formfield 'age' }}</div>
-        <hr class="divider"/>
-
-        <div class="question-container">{{ formfield 'occupation' }}</div>
-        <hr class="divider"/>
-
-        <div class="question-container">{{ formfield 'ai_use' }}</div>
-        <hr class="divider"/>
-
-        <div class="question-container">{{ formfield 'task_difficulty' }}</div>
-        <hr class="divider"/>
-
-        <div class="question-container">{{ formfield 'feedback' }}</div>
-=======
         {# Show any global form errors #}
         {% if form.errors %}
         <ul class="errorlist global-error">
@@ -69,24 +33,12 @@
         <hr class="divider"/>
 
         <div class="question-container">{{ formfield "feedback" }}</div>
->>>>>>> c6666a1b545ae1763e7770a297b9603789b25490
         <hr class="divider"/>
-
 
         <button type="submit" class="modern-btn">Take me back to Prolific.</button>
 
     </form>
 </div>
-
-<script>
-// Immediate redirect after the form POST is initiated (no timer)
-(function () {
-    const form = document.querySelector('form.test-form');
-    form.addEventListener('submit', function () {
-        window.location.href = 'https://bsky.app/profile/iterrucha.bsky.social';
-    });
-})();
-</script>
 
 <style>
 body{font-family:'Arial',sans-serif;background:#f9f9f9;margin:0;color:#333;}
