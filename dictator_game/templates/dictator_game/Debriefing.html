@@ -48,11 +48,34 @@
     <p class="summary-note">
         Your total allocation decisions have been recorded. Please contact the researcher if you have any questions.
     </p>
+
+    <form method="post">
+    <button type="submit" class="modern-btn" id="continue-btn">
+        Continue&nbsp;→
+    </button>
+</form>
 </div>
+
+<script>
+/* 2️⃣  show the button after 15 000 ms = 15 s */
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        const btn = document.getElementById('continue-btn');
+        if (btn) btn.style.display = 'block';
+    }, 15000);
+});
+</script>
 
 <style>
 /* General Styling */
-
+#continue-btn {
+    display: none;
+    margin-top: 30px;
+    background-color: #28a745;          /* green */
+}
+#continue-btn:hover {
+    background-color: #1e7e34;
+}
 .highlight-payoff {
     border: 3px solid #ff9800; /* Orange border to highlight */
     box-shadow: 0 0 15px rgba(255, 152, 0, 0.5);
@@ -170,7 +193,27 @@ body {
 
     .styled-table {
         font-size: 13px;
-    }
+    } 
 }
+
+    .modern-btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #003d80;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modern-btn:hover {
+    background-color: #003d80;
+}
+
 </style>
 {% endblock %}

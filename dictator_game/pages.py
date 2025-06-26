@@ -345,10 +345,15 @@ class Results(Page):
 # -------------------------
 
 class Debriefing(Page):
+    form_model = 'player'   # required so oTree renders a <form>
+    form_fields = []        # nothing to store on this page
     def is_displayed(self):
         return  self.round_number == Constants.num_rounds
 
+    def before_next_page(self):
+        self.player.result_finalized=True
 
+        
     def vars_for_template(self):
         import json
         import random
@@ -428,6 +433,20 @@ class Debriefing(Page):
         return total_kept,total_allocated
 
 
+class ExitQuestionnaire(Page):
+    form_model = 'player'
+    form_fields = [
+        'gender',           # Male / Female / Non-binary / Prefer not to say
+        'age',              # 18 – 100
+        'occupation',       # free text ≤ 100 chars
+        'ai_use',           # frequency scale
+        'task_difficulty',  # difficulty scale
+        'feedback',         # optional free text ≤ 1000 chars
+    ]
+
+    def is_displayed(self):
+        return  self.round_number == Constants.num_rounds
+
 
 
 
@@ -444,8 +463,8 @@ page_sequence = [
     Instructions,           # Once at the start of each part
     DelegationDecision,     # At the start of Part 3 to choose delegation
     GoalOriented,            # ChatGPTPage for Part 2 or optional delegation in Part 3
-    #SupervisedLearning,     # ChatGPTPage for Part 2 or optional delegation in Part 3
     Decision,               # Decision page for Part 1 and manual decisions in Part 3
     Results,                # Reusable for all parts
     Debriefing,             # At the end or if excluded
+    ExitQuestionnaire,
 ]
