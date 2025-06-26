@@ -1,15 +1,7 @@
 from otree.api import *
-from dictator_game.chatgptassistant import ChatGPTAssistant
 import numpy as np
 import settings
 
-
-def initialize_assistant(self): 
-        
-        chatbot_assistant=ChatGPTAssistant()
-        self.assistant_id=chatbot_assistant.assistant_id  
-
-        return chatbot_assistant
 
 #returns a list of 10 random numbers, calculated using normal distribution with a mean coming from the slider 
 def generate_numbers(mean,case):
@@ -65,7 +57,7 @@ class Player(BasePlayer):
     orientation_history=models.LongStringField(initial='{}')
     supervised_history=models.LongStringField(initial='{}') #sample datasets created (created once| currently regenerates on refresh page)
     supervised_dataset=models.LongStringField(initial='{}') #appended by dataset on clicking generated in supervised learning
-    prolific_id=models.LongStringField(initial='{}')
+    prolific_id = models.StringField()
     assistant_id = models.StringField(blank=True)  # Allow an empty value
     sample_cnt=models.IntegerField(initial=0)
     supervised_mean=models.FloatField(blank=True)
