@@ -61,12 +61,61 @@ class Player(BasePlayer):
     assistant_id = models.StringField(blank=True)  # Allow an empty value
     sample_cnt=models.IntegerField(initial=0)
     supervised_mean=models.FloatField(blank=True)
+    result_finalized=False
+
     # Allocation for the current decision (manual or agent-based)
     allocation = models.IntegerField(
         min=0,
         max=100,
         label="How much would you like to allocate to the other participant?",
         blank=True
+    )
+    gender = models.StringField(
+        choices=[
+            ('male',        'Male'),
+            ('female',      'Female'),
+            ('nonbinary',   'Non-binary'),
+            ('nosay',       'Prefer not to say'),
+        ],
+        label="How do you describe yourself?",
+    )
+
+    age = models.IntegerField(
+        min=18, max=100,
+        label="How old are you?",
+    )
+
+    occupation = models.StringField(
+        max_length=100,
+        label="What is your current main occupation?",
+    )
+
+    ai_use = models.StringField(
+        choices=[
+            ('never',       'Never'),
+            ('monthly',     'A few times a month'),
+            ('weekly',      'A few times a week'),
+            ('daily',       'A few times a day'),
+            ('constant',    'All the time'),
+        ],
+        label="How often do you interact with AI agents (e.g., ChatGPT)?",
+    )
+
+    task_difficulty = models.StringField(
+        choices=[
+            ('very_diff',   'Very difficult'),
+            ('diff',        'Difficult'),
+            ('neutral',     'Neutral'),
+            ('easy',        'Easy'),
+            ('very_easy',   'Very easy'),
+        ],
+        label="How hard was it for you to understand the experimental task?",
+    )
+
+    feedback = models.LongStringField(
+        blank=True,                # optional
+        max_length=1000,
+        label="Suggestions / comments for the researchers (optional)",
     )
 
     random_payoff_part=models.IntegerField( blank=True, min=1, max=3 )
