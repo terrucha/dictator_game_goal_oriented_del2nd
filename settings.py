@@ -6,7 +6,7 @@ SESSION_CONFIGS = [
         name='dictator_game',
         display_name="Dictator Game",
         app_sequence=['dictator_game'],  # This links to your app folder
-        num_demo_participants=1,  # Adjust as needed
+        num_demo_participants=100,  # Adjust as needed
     ),
 ]
 
