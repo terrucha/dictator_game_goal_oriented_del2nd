@@ -117,7 +117,7 @@ class Player(BasePlayer):
     feedback = models.LongStringField(
         blank=True,                # optional
         max_length=1000,
-        label="Suggestions / comments for the researchers (optional)",
+        label="Do you have any suggestions or comments about the experiment that you would like to share with the researchers? If yes, use the box below. (Optional)",
     )
 
     random_payoff_part=models.IntegerField( blank=True, min=1, max=3 )
