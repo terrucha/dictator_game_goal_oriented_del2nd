@@ -51,7 +51,7 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-
+    app_name = models.StringField(initial="goaloriented_del2nd')
     final_allocations = models.LongStringField()
     conversation_history=models.LongStringField(initial='[]') 
     orientation_history=models.LongStringField(initial='{}')
